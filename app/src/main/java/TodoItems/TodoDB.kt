@@ -29,7 +29,7 @@ class TodoDB {
             database.db.insert(TodoTable.TABLE_NAME, null, database.values)
         }
 
-        fun update(item:TodoItemData) {
+        fun actializar(item:TodoItemData) {
             database.values.put(TodoTable.TITLE, item.tittle)
             database.values.put(TodoTable.MESSAGE, item.message)
             database.values.put(TodoTable.DATE, item.date)

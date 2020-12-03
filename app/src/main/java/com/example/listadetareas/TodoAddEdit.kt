@@ -54,7 +54,7 @@ class TodoAddEdit : AppCompatActivity() {
 
     fun formSetUpEdit() {
         setTitle("Editar Tarea")
-        var todoItem: TodoItemData
+        var id = intent?.getIntExtra("ID", -1)!!
         agregarTitulo.setText(intent.getStringExtra("TITLE"))
         editTextTextMultiLine.setText(intent.getStringExtra("MESSAGE"))
         agregarFecha.setText(intent.getStringExtra("DATE"))
@@ -69,7 +69,7 @@ class TodoAddEdit : AppCompatActivity() {
                 putExtra("DATE", agregarFecha.text.toString())
                 putExtra("IMAGE", agregarImagen.text.toString())
             }
-            todoDBController!!.insertar(TodoItemData(0, agregarTitulo.text.toString(), editTextTextMultiLine.text.toString(), agregarFecha.text.toString(), agregarImagen.text.toString()))
+            todoDBController!!.actializar(TodoItemData(id, agregarTitulo.text.toString(), editTextTextMultiLine.text.toString(), agregarFecha.text.toString(), agregarImagen.text.toString()))
             setResult(Activity.RESULT_OK, intent)
             onBackPressed()
         }
